@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 import MobileCoreServices
 
+let frameCount = 16
+let delayTime: Float = 0.2
+let loopCount = 0       // 0 means loop forever
+
 extension UIViewController{
     @IBAction func luanchVideoCameraWithSender(_ sender: AnyObject){
         let recordVideoController = UIImagePickerController()
@@ -19,6 +23,19 @@ extension UIViewController{
         recordVideoController.delegate = self
         
         present(recordVideoController, animated: true, completion: nil)
+    }
+    
+    func convertVideoToGif(videoURL: URL){
+        let regift = Regift(sourceFileURL: videoURL, frameCount: frameCount, delayTime: delayTime, loopCount:loopCount)
+        let gifURL = regift.createGif()
+        
+        displayGIF(url: gifURL!)
+    }
+    
+    func displayGIF(url: URL){
+        let gifEditorVC = storyboard?.instantiateViewController(withIdentifier: "GifEditorViewController") as! GifEditorViewController
+        gifEditorVC.gifURL = url
+        navigationController?.pushViewController(gifEditorVC, animated: true)
     }
 }
 
@@ -36,6 +53,7 @@ extension UIViewController: UIImagePickerControllerDelegate{
             let videoURL = info[UIImagePickerControllerMediaURL] as! URL
             UISaveVideoAtPathToSavedPhotosAlbum(videoURL.path, nil, nil, nil)
             dismiss(animated: true, completion: nil)
+            convertVideoToGif(videoURL: videoURL)
         }
     }
     
