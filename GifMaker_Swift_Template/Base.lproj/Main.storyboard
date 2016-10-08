@@ -171,7 +171,7 @@
                                     <constraint firstAttribute="width" secondItem="Idg-S9-dYE" secondAttribute="height" multiplier="1:1" id="VYW-pa-uQv"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Caption" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hx5-Iw-gBr">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Add Caption" placeholder="Add Caption" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hx5-Iw-gBr">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ZG3-3H-HnY"/>
                                 </constraints>
@@ -197,6 +197,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="captionTextField" destination="Hx5-Iw-gBr" id="pQf-LF-5Ve"/>
                         <outlet property="gifImageView" destination="Idg-S9-dYE" id="eyx-fg-U1t"/>
                     </connections>
                 </viewController>

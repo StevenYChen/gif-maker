@@ -20,11 +20,11 @@ class Gif {
         self.url = url
         self.videoURL = videoURL
         self.caption = caption
-        self.gifImage = UIImage.gifURL(url.absoluteString)!
+        self.gifImage = UIImage.gifURL(url.absoluteString!)!
         self.gifData = nil
     }
     
-    init(name: String){
-        self.gifImage = UIImage.gifURL(name)
-    }
+//    init(name: String){
+  //      self.gifImage = UIImage.gifURL(name)
+    //}
 }

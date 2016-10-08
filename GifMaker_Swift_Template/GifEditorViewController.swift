@@ -10,16 +10,15 @@ import UIKit
 
 class GifEditorViewController: UIViewController {
     
+    @IBOutlet weak var captionTextField: UITextField!
     @IBOutlet weak var gifImageView:UIImageView!
-    var gifURL:URL? = nil
+    
+    var gif:Gif?
     
     override func viewWillAppear(_ animated: Bool) {
    
         super.viewWillAppear(animated)
-        
-        if let gifURL = gifURL{
-            let gifFromRecording = UIImage.gifURL(gifURL.absoluteString)
-            gifImageView.image = gifFromRecording
+            gifImageView.image = gif?.gifImage
         }
     }
     
@@ -34,4 +33,6 @@ class GifEditorViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+   
 }
