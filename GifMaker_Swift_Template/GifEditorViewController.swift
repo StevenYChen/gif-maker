@@ -17,6 +17,7 @@ class GifEditorViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         gifImageView.image = gif?.gifImage
+        subscribeToKeyboardNotifications()
     }
     
     override func viewDidLoad() {
@@ -25,18 +26,56 @@ class GifEditorViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        unsubscribeFromKeyboardNotifications()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     // Textfield delegate
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.placeholder = ""
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension GifEditorViewController {
+    func subscribeToKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(GifEditorViewController.keyboardWillShow(notification:)),
+                                                         name: NSNotification.Name.UIKeyboardWillShow,
+                                                         object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(GifEditorViewController.keyboardWillHide(notification:)),
+                                                         name: NSNotification.Name.UIKeyboardWillHide,
+                                                         object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if view.frame.origin.y >= 0 {
+            view.frame.origin.y -= getKeyboardHeight(notification: notification)
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if (self.view.frame.origin.y < 0) {
+            view.frame.origin.y += getKeyboardHeight(notification: notification)
+        }
+    }
+    
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
     }
 }
