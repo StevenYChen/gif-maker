@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GifEditorViewController: UIViewController {
+class GifEditorViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var captionTextField: UITextField!
     @IBOutlet weak var gifImageView:UIImageView!
@@ -16,15 +16,12 @@ class GifEditorViewController: UIViewController {
     var gif:Gif?
     
     override func viewWillAppear(_ animated: Bool) {
-   
-        super.viewWillAppear(animated)
-            gifImageView.image = gif?.gifImage
-        }
+        gifImageView.image = gif?.gifImage
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        captionTextField.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -33,6 +30,13 @@ class GifEditorViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // Textfield delegate
+    func textFieldDidBeginEditing(textField: UITextField) {
+        textField.placeholder = ""
+    }
     
-   
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
