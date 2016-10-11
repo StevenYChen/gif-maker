@@ -11,7 +11,7 @@ import UIKit
 class Gif {
     let url: NSURL
     let videoURL: NSURL
-    let caption: String?
+    var caption: String?
     let gifImage: UIImage?
     var gifData: NSData?
     

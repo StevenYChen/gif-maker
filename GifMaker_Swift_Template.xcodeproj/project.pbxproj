@@ -14,6 +14,7 @@
 		AD669DFD1DA5A9690037DFEC /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD669DFC1DA5A9690037DFEC /* WelcomeViewController.swift */; };
 		AD669DFF1DA5ADAA0037DFEC /* GifEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD669DFE1DA5ADAA0037DFEC /* GifEditorViewController.swift */; };
 		AD84C54C1DA956A900732AA6 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD84C54B1DA956A900732AA6 /* Gif.swift */; };
+		AD84C54E1DADA6F500732AA6 /* GifPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD84C54D1DADA6F500732AA6 /* GifPreviewViewController.swift */; };
 		EDDFC4DC1CE261A600A586CA /* tinaFeyHiFive.gif in Resources */ = {isa = PBXBuildFile; fileRef = EDDFC4DB1CE261A600A586CA /* tinaFeyHiFive.gif */; };
 		EDDFC4DE1CE261C400A586CA /* hotlineBling.gif in Resources */ = {isa = PBXBuildFile; fileRef = EDDFC4DD1CE261C400A586CA /* hotlineBling.gif */; };
 		EDFAA8ED1CDA99A500D2CB08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFAA8EC1CDA99A500D2CB08 /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 		AD669DFC1DA5A9690037DFEC /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		AD669DFE1DA5ADAA0037DFEC /* GifEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifEditorViewController.swift; sourceTree = "<group>"; };
 		AD84C54B1DA956A900732AA6 /* Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
+		AD84C54D1DADA6F500732AA6 /* GifPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifPreviewViewController.swift; sourceTree = "<group>"; };
 		EDDFC4DB1CE261A600A586CA /* tinaFeyHiFive.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tinaFeyHiFive.gif; sourceTree = "<group>"; };
 		EDDFC4DD1CE261C400A586CA /* hotlineBling.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = hotlineBling.gif; sourceTree = "<group>"; };
 		EDFAA8E91CDA99A500D2CB08 /* GifMaker_Swift_Template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifMaker_Swift_Template.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +70,7 @@
 				A93B3B061D2D3F7900BE1662 /* Main.storyboard */,
 				AD669DF81DA59CA20037DFEC /* UIViewController+Record.swift */,
 				AD669DFE1DA5ADAA0037DFEC /* GifEditorViewController.swift */,
+				AD84C54D1DADA6F500732AA6 /* GifPreviewViewController.swift */,
 				AD669DFA1DA5A6E10037DFEC /* UIImage+Gif.swift */,
 				AD669DFC1DA5A9690037DFEC /* WelcomeViewController.swift */,
 				AD84C54B1DA956A900732AA6 /* Gif.swift */,
@@ -190,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD84C54E1DADA6F500732AA6 /* GifPreviewViewController.swift in Sources */,
 				AD669DFB1DA5A6E10037DFEC /* UIImage+Gif.swift in Sources */,
 				EDFAA9201CDA9C3100D2CB08 /* Regift.swift in Sources */,
 				EDFAA9211CDA9C3100D2CB08 /* RegiftCaption.swift in Sources */,

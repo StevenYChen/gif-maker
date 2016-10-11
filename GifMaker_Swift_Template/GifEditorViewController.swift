@@ -34,6 +34,22 @@ class GifEditorViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func presentPreview(_ sender: AnyObject) {
+        let previewVC = self.storyboard?.instantiateViewController(withIdentifier: "GifPreviewViewController") as? GifPreviewViewController
+        self.gif?.caption = self.captionTextField.text;
+        
+        let regift = Regift(sourceFileURL: self.gif?.videoURL as! URL, destinationFileURL: nil, frameCount: frameCount, delayTime: delayTime, loopCount: loopCount)
+        
+        
+        let captionFont = self.captionTextField.font;
+        let gifURL = regift.createGif(caption: self.captionTextField.text, font: captionFont)
+        
+        let newGif = Gif(url: gifURL! as NSURL, videoURL: (self.gif?.videoURL)!, caption: self.captionTextField.text)
+        previewVC?.gif = newGif;
+    
+        self.navigationController?.pushViewController(previewVC!, animated: true)
+    }
+    
     // Textfield delegate
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.placeholder = ""
