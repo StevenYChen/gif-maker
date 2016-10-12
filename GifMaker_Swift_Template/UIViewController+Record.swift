@@ -28,6 +28,7 @@ extension UIViewController{
             })
             
             let chooseFromExisting = UIAlertAction(title: "Choose From Existing", style: UIAlertActionStyle.default, handler:{ (UIAlertAction) in
+                self.luanchPhotoLibrary()
                 
             })
             
@@ -52,6 +53,16 @@ extension UIViewController{
         recordVideoController.delegate = self
         
         present(recordVideoController, animated: true, completion: nil)
+    }
+    
+    public func luanchPhotoLibrary(){
+        let photoLibraryController = UIImagePickerController()
+        photoLibraryController.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        photoLibraryController.mediaTypes = [kUTTypeMovie as String]
+        photoLibraryController.allowsEditing = false
+        photoLibraryController.delegate = self
+        
+        present(photoLibraryController, animated: true, completion: nil)
     }
     
     func convertVideoToGif(videoURL: URL){
