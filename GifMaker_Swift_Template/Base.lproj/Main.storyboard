@@ -357,7 +357,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="createButton"/>
                                 <connections>
-                                    <action selector="luanchVideoCameraWithSender:" destination="aXC-Xw-CZL" eventType="touchUpInside" id="J5L-IP-FlY"/>
+                                    <action selector="presentVideoOptions" destination="aXC-Xw-CZL" eventType="touchUpInside" id="5Bt-6q-650"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mvh-6r-tbq">

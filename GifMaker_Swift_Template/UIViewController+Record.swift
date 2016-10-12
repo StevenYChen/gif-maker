@@ -15,7 +15,36 @@ let delayTime: Float = 0.2
 let loopCount = 0       // 0 means loop forever
 
 extension UIViewController{
-    @IBAction func luanchVideoCameraWithSender(_ sender: AnyObject){
+    
+    @IBAction func presentVideoOptions(){
+        print("ASDF")
+        if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
+        
+        }else{
+            let newGifActionSheet = UIAlertController(title: "Create New Gif", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+            
+            let recordVideo = UIAlertAction(title: "Record A Video", style: UIAlertActionStyle.default, handler:{ (UIAlertAction) in
+                    self.luanchVideoCamera()
+            })
+            
+            let chooseFromExisting = UIAlertAction(title: "Choose From Existing", style: UIAlertActionStyle.default, handler:{ (UIAlertAction) in
+                
+            })
+            
+            let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler:nil)
+            
+            newGifActionSheet.addAction(recordVideo)
+            newGifActionSheet.addAction(chooseFromExisting)
+            newGifActionSheet.addAction(cancel)
+            
+            present(newGifActionSheet, animated: true, completion: nil)
+            let pinkColor = UIColor(red: 255.0/255.0, green: 65.0/255.0, blue: 112.0/255.0, alpha: 1.0)
+            newGifActionSheet.view.tintColor = pinkColor
+        }
+    }
+    
+    
+    public func luanchVideoCamera(){
         let recordVideoController = UIImagePickerController()
         recordVideoController.sourceType = UIImagePickerControllerSourceType.camera
         recordVideoController.mediaTypes = [kUTTypeMovie as String]
